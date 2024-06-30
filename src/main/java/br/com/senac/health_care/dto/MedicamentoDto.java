@@ -1,22 +1,22 @@
 package br.com.senac.health_care.dto;
 
-import br.com.senac.health_care.Entities.medicamento;
+import br.com.senac.health_care.domain.Medicamento;
 
-public class medicamentoDto {
+public class MedicamentoDto {
     private long medicamento_id;
     private String nome;
     private double valor;
 
-    public medicamentoDto() {
+    public MedicamentoDto() {
     }
 
-    public medicamentoDto(medicamento medicamento) {
+    public MedicamentoDto(Medicamento medicamento) {
         this.medicamento_id = medicamento.getMedicamento_id();
         this.nome = medicamento.getNome();
         this.valor = medicamento.getValor();
     }
 
-    public medicamentoDto(long medicamento_id, String nome, double valor) {
+    public MedicamentoDto(long medicamento_id, String nome, double valor) {
         this.medicamento_id = medicamento_id;
         this.nome = nome;
         this.valor = valor;

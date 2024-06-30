@@ -1,4 +1,4 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import br.com.senac.health_care.Service.PacienteService;
+import br.com.senac.health_care.service.PacienteService;
 import br.com.senac.health_care.dto.PacienteDto;
-import br.com.senac.health_care.entities.Paciente;
+import br.com.senac.health_care.domain.Paciente;
 
 
 

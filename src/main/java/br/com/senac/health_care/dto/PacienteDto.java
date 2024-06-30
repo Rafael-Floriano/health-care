@@ -2,12 +2,9 @@ package br.com.senac.health_care.dto;
 
 import org.springframework.beans.BeanUtils;
 
-import br.com.senac.health_care.entities.Paciente;
+import br.com.senac.health_care.domain.Paciente;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 
-@Entity
 public class PacienteDto {
     
 

@@ -1,4 +1,4 @@
-package br.com.senac.health_care.Entities;
+package br.com.senac.health_care.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
@@ -6,20 +6,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class medicamento {
+public class Medicamento {
     @Id
     private long medicamento_id;
     private String nome;
     private double valor;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "medicamento")
-    private medicamento medicamento;
-
-    public medicamento() {
+    public Medicamento() {
     }
 
-    public medicamento(long medicamento_id, String nome, double valor) {
+    public Medicamento(long medicamento_id, String nome, double valor) {
         this.medicamento_id = medicamento_id;
         this.nome = nome;
         this.valor = valor;

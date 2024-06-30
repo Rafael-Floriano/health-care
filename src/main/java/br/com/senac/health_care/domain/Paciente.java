@@ -1,4 +1,4 @@
-package br.com.senac.health_care.entities;
+package br.com.senac.health_care.domain;
 
 import org.springframework.beans.BeanUtils;
 

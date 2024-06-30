@@ -1,4 +1,4 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 import java.util.List;
 
@@ -8,26 +8,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.senac.health_care.Entities.medicamento;
-import br.com.senac.health_care.Service.medicamentoService;
-import br.com.senac.health_care.dto.medicamentoDto;
+import br.com.senac.health_care.domain.Medicamento;
+import br.com.senac.health_care.service.MedicamentoService;
+import br.com.senac.health_care.dto.MedicamentoDto;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/medicamento")
-public class medicamentoController {
+public class MedicamentoController {
 
     @Autowired
-    medicamentoService service;
+    MedicamentoService service;
 
     @GetMapping("/cadastrar")
-    public ResponseEntity<String> cadastrar(medicamento medicamento) {
+    public ResponseEntity<String> cadastrar(Medicamento medicamento) {
         return new ResponseEntity<>(service.cadastrar(medicamento), HttpStatus.OK);
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<medicamentoDto>> listar() {
+    public ResponseEntity<List<MedicamentoDto>> listar() {
         return ResponseEntity.ok(service.listar());
     }
 

@@ -1,20 +1,20 @@
 package br.com.senac.health_care.dto;
 
-import br.com.senac.health_care.Entities.prescricao;
+import br.com.senac.health_care.domain.Prescricao;
 
-public class prescricaoDto {
+public class PrescricaoDto {
     private long prescricao_id;
     private String descricao;
 
-    public prescricaoDto() {
+    public PrescricaoDto() {
     }
 
-    public prescricaoDto(prescricao prescricao) {
+    public PrescricaoDto(Prescricao prescricao) {
         this.prescricao_id = prescricao.getPrescricao_id();
         this.descricao = prescricao.getDescricao();
     }
 
-    public prescricaoDto(long prescricao_id, String descricao) {
+    public PrescricaoDto(long prescricao_id, String descricao) {
         this.prescricao_id = prescricao_id;
         this.descricao = descricao;
     }
