@@ -1,11 +1,14 @@
 package br.com.senac.health_care.domain;
 
+import br.com.senac.health_care.dto.ProntuarioDto;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "prontuario")
 public class Prontuario {
 
@@ -26,5 +29,21 @@ public class Prontuario {
 
     @Column(name = "convenio")
     private String convenio;
+
+    public Prontuario(ProntuarioDto prontuarioDto) {
+        this.registroMedicos = prontuarioDto.getRegistroMedicoDtoList().stream().map(RegistroMedico::new).toList();
+        this.dataEntrada = prontuarioDto.getDataEntrada();
+        this.dataSaida = prontuarioDto.getDataSaida();
+        this.convenio = prontuarioDto.getConvenio();
+    }
+
+    public ProntuarioDto toDto() {
+        ProntuarioDto prontuarioDto = new ProntuarioDto();
+        prontuarioDto.setDataEntrada(this.dataEntrada);
+        prontuarioDto.setDataSaida(this.dataSaida);
+        prontuarioDto.setConvenio(this.convenio);
+        prontuarioDto.getRegistroMedicoDtoList().addAll(this.registroMedicos.stream().map(RegistroMedico::toDto).toList());
+        return prontuarioDto;
+    }
 
 }
