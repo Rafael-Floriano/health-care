@@ -2,11 +2,15 @@ package br.com.senac.health_care.domain;
 
 import br.com.senac.health_care.dto.ProntuarioDto;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Data
 @Entity
 @NoArgsConstructor
 @Table(name = "prontuario")
@@ -17,7 +21,7 @@ public class Prontuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @Column(name = "id_registro_medico")
     private List<RegistroMedico> registroMedicos;
 
@@ -42,7 +46,7 @@ public class Prontuario {
         prontuarioDto.setDataEntrada(this.dataEntrada);
         prontuarioDto.setDataSaida(this.dataSaida);
         prontuarioDto.setConvenio(this.convenio);
-        prontuarioDto.getRegistroMedicoDtoList().addAll(this.registroMedicos.stream().map(RegistroMedico::toDto).toList());
+        prontuarioDto.setRegistroMedicoDtoList(this.registroMedicos != null ? this.registroMedicos.stream().map(RegistroMedico::toDto).toList() : null);
         return prontuarioDto;
     }
 
