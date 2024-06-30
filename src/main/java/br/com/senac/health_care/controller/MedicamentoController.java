@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MedicamentoController {
 
     @Autowired
-    MedicamentoService service;
+    private MedicamentoService service;
 
     @GetMapping("/cadastrar")
     public ResponseEntity<String> cadastrar(Medicamento medicamento) {
