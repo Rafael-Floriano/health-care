@@ -1,6 +1,7 @@
 package br.com.senac.health_care.controller;
 
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +21,7 @@ import br.com.senac.health_care.domain.Paciente;
 
 @RestController
 @RequestMapping("/paciente")
+@Tag(name = "Paciente Rest Controller", description = "Controller responsável pelas seguintes funções: Registrar, atualizar, remover e listar pacientes;")
 public class PacienteController {
     
     @Autowired 

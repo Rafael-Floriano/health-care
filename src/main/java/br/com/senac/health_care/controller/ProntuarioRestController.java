@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/prontuario")
-@Tag(name = "Prontuario Rest Controller", description = "Controller responsável pelas seguintes funções: dicionar, atualizar, remover e listar registros médicos;")
+@Tag(name = "Prontuario Rest Controller", description = "Controller responsável pelas seguintes funções: adicionar, atualizar, remover e listar registros médicos;")
 public class ProntuarioRestController {
 
     private final ProntuarioService prontuarioService;

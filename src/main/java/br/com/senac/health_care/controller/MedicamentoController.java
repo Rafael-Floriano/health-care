@@ -2,6 +2,7 @@ package br.com.senac.health_care.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/medicamento")
+@Tag(name = "Medicamento Rest Controller", description = "Controller responsável pelas seguintes funções: Criar e listar medicamentos;")
 public class MedicamentoController {
 
     @Autowired
