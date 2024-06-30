@@ -1,4 +1,4 @@
-package br.com.senac.health_care.service;
+package br.com.senac.health_care.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.senac.health_care.domain.Medicamento;
-import br.com.senac.health_care.repository.MedicamentoRepository;
+import br.com.senac.health_care.Repository.MedicamentoRepository;
 import br.com.senac.health_care.dto.MedicamentoDto;
 
 @Service

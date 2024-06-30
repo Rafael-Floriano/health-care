@@ -1,7 +1,7 @@
-package br.com.senac.health_care.controller;
+package br.com.senac.health_care.Controller;
 
 import br.com.senac.health_care.dto.ProntuarioDto;
-import br.com.senac.health_care.service.ProntuarioService;
+import br.com.senac.health_care.Service.ProntuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,8 @@ public class ProntuarioRestController {
 
     @PutMapping("/atualizar/{id}")
     @Operation(summary = "Faz a atualização de um prontuário já existente")
-    public ResponseEntity<ProntuarioDto> updateProntuario(@PathVariable("id") Long id, @RequestBody ProntuarioDto prontuarioDto) {
+    public ResponseEntity<ProntuarioDto> updateProntuario(@PathVariable("id") Long id,
+            @RequestBody ProntuarioDto prontuarioDto) {
         return prontuarioService.updateProntuario(id, prontuarioDto);
     }
 

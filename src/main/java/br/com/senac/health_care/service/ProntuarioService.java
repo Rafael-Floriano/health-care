@@ -1,15 +1,13 @@
-package br.com.senac.health_care.service;
+package br.com.senac.health_care.Service;
 
 import br.com.senac.health_care.domain.Prontuario;
 import br.com.senac.health_care.domain.RegistroMedico;
 import br.com.senac.health_care.dto.ProntuarioDto;
-import br.com.senac.health_care.repository.ProntuarioRepository;
+import br.com.senac.health_care.Repository.ProntuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -31,7 +29,8 @@ public class ProntuarioService {
 
         prontuario.setDataEntrada(prontuarioDto.getDataEntrada());
         prontuario.setDataSaida(prontuarioDto.getDataSaida());
-        prontuario.getRegistroMedicos().addAll(prontuarioDto.getRegistroMedicoDtoList().stream().map(RegistroMedico::new).toList());
+        prontuario.getRegistroMedicos()
+                .addAll(prontuarioDto.getRegistroMedicoDtoList().stream().map(RegistroMedico::new).toList());
         prontuario.setConvenio(prontuario.getConvenio());
 
         prontuarioRepository.save(prontuario);

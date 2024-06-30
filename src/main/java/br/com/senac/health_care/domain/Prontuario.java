@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -46,7 +44,9 @@ public class Prontuario {
         prontuarioDto.setDataEntrada(this.dataEntrada);
         prontuarioDto.setDataSaida(this.dataSaida);
         prontuarioDto.setConvenio(this.convenio);
-        prontuarioDto.setRegistroMedicoDtoList(this.registroMedicos != null ? this.registroMedicos.stream().map(RegistroMedico::toDto).toList() : null);
+        prontuarioDto.setRegistroMedicoDtoList(
+                this.registroMedicos != null ? this.registroMedicos.stream().map(RegistroMedico::toDto).toList()
+                        : null);
         return prontuarioDto;
     }
 

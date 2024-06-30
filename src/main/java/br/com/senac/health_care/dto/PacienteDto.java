@@ -3,10 +3,8 @@ package br.com.senac.health_care.dto;
 import org.springframework.beans.BeanUtils;
 
 import br.com.senac.health_care.domain.Paciente;
-import jakarta.persistence.Entity;
 
 public class PacienteDto {
-    
 
     private Long id;
     private String nome;
@@ -14,13 +12,14 @@ public class PacienteDto {
     private String sexo;
     private String cpf;
     private String descrição;
-    
+
     public PacienteDto(Paciente paciente) {
         BeanUtils.copyProperties(paciente, this);
     }
 
-    public PacienteDto(){
-            }
+    public PacienteDto() {
+    }
+
     public PacienteDto(Long id, String nome, String telefone, String sexo, String cpf, String descrição) {
         this.id = id;
         this.nome = nome;
@@ -78,7 +77,4 @@ public class PacienteDto {
         this.descrição = descrição;
     }
 
-    
-    
-    
 }
