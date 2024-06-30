@@ -42,4 +42,9 @@ public class ProntuarioService {
         List<ProntuarioDto> prontuarios = prontuarioRepository.findAll().stream().map(Prontuario::toDto).toList();
         return ResponseEntity.ok(prontuarios);
     }
+
+    public ResponseEntity<String> removeProntuario(Long id) {
+        prontuarioRepository.deleteById(id);
+        return ResponseEntity.ok("Prontuário removido com sucesso!");
+    }
 }

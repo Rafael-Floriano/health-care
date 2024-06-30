@@ -36,4 +36,10 @@ public class ProntuarioRestController {
         return prontuarioService.getAllProntuarios();
     }
 
+    @DeleteMapping
+    @Operation(summary = "Delete prontuários pelo id")
+    public ResponseEntity<String> removeProntuario(@RequestParam("id") Long id) {
+        return prontuarioService.removeProntuario(id);
+    }
+
 }
