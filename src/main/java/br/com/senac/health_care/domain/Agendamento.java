@@ -3,13 +3,9 @@ package br.com.senac.health_care.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import br.com.senac.health_care.dto.FaturamentoAgendamentoDto;
+import br.com.senac.health_care.dto.MedicamentoDto;
+import jakarta.persistence.*;
 
 @Entity
 public class Agendamento {
@@ -26,6 +22,8 @@ public class Agendamento {
     private Procedimento procedimento;
     @OneToMany
     private List<Prescricao> prescricoes;
+    @ManyToMany
+    private List<Material> materials;
 
     public Agendamento() {
     }
@@ -39,6 +37,19 @@ public class Agendamento {
         Status = status;
         this.procedimento = procedimento;
         this.prescricoes = prescricoes;
+    }
+
+    public FaturamentoAgendamentoDto toFaturamentoAgendamentoDto() {
+        FaturamentoAgendamentoDto dto = new FaturamentoAgendamentoDto();
+        dto.setAgendamentoId(this.agendamento_id);
+        dto.setProcedimentoDto(this.procedimento != null ? this.procedimento.toDto() : null);
+        dto.setMedicamentoDtoList(this.prescricoes
+                .stream().map(
+                        x -> x.getMedicamentos().stream().map(MedicamentoDto::new).toList()
+                ).toList().get(0));
+        dto.setMaterialDtoList(this.materials.stream().map(Material::toDto).toList());
+        dto.calculaValorTotalFaturamentoAgendamento();
+        return dto;
     }
 
     public Long getAgendamento_id() {
