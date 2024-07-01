@@ -1,35 +1,33 @@
-package br.com.senac.health_care.domain;
+package br.com.senac.health_care.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import br.com.senac.health_care.dto.FaturamentoAgendamentoDto;
-import br.com.senac.health_care.dto.MedicamentoDto;
-import jakarta.persistence.*;
+import br.com.senac.health_care.domain.Agendamento;
+import br.com.senac.health_care.domain.Paciente;
+import br.com.senac.health_care.domain.Prescricao;
+import br.com.senac.health_care.domain.Procedimento;
+import br.com.senac.health_care.domain.Prontuario;
 
-@Entity
-public class Agendamento {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long agendamento_id;
-    @ManyToOne
+public class AgendamentoDto {
+    private long agendamento_id;
     private Paciente paciente;
     private LocalDateTime dataHora;
-    @OneToOne
     private Prontuario prontuario;
     private String status;
-    @OneToOne
     private Procedimento procedimento;
-    @OneToMany
     private List<Prescricao> prescricoes;
-    @ManyToMany
-    private List<Material> materials;
 
-    public Agendamento() {
+    public AgendamentoDto() {
     }
 
-    public Agendamento(Long agendamento_id, Paciente paciente, LocalDateTime dataHora, Prontuario prontuario,
-            String status, Procedimento procedimento, List<Prescricao> prescricoes) {
+    public AgendamentoDto(Agendamento agendamento) {
+        this.agendamento_id = agendamento.getAgendamento_id();
+    }
+
+    public AgendamentoDto(long agendamento_id, Paciente paciente, LocalDateTime dataHora, Prontuario prontuario,
+            String status,
+            Procedimento procedimento, List<Prescricao> prescricoes) {
         this.agendamento_id = agendamento_id;
         this.paciente = paciente;
         this.dataHora = dataHora;
@@ -39,24 +37,11 @@ public class Agendamento {
         this.prescricoes = prescricoes;
     }
 
-    public FaturamentoAgendamentoDto toFaturamentoAgendamentoDto() {
-        FaturamentoAgendamentoDto dto = new FaturamentoAgendamentoDto();
-        dto.setAgendamentoId(this.agendamento_id);
-        dto.setProcedimentoDto(this.procedimento != null ? this.procedimento.toDto() : null);
-        dto.setMedicamentoDtoList(this.prescricoes
-                .stream().map(
-                        x -> x.getMedicamentos().stream().map(MedicamentoDto::new).toList()
-                ).toList().get(0));
-        dto.setMaterialDtoList(this.materials.stream().map(Material::toDto).toList());
-        dto.calculaValorTotalFaturamentoAgendamento();
-        return dto;
-    }
-
-    public Long getAgendamento_id() {
+    public long getId() {
         return agendamento_id;
     }
 
-    public void setAgendamento_id(Long agendamento_id) {
+    public void setId(long agendamento_id) {
         this.agendamento_id = agendamento_id;
     }
 
