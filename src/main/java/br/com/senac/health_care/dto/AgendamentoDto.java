@@ -1,37 +1,33 @@
-package br.com.senac.health_care.domain;
+package br.com.senac.health_care.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import br.com.senac.health_care.domain.Agendamento;
+import br.com.senac.health_care.domain.Paciente;
+import br.com.senac.health_care.domain.Prescricao;
+import br.com.senac.health_care.domain.Procedimento;
+import br.com.senac.health_care.domain.Prontuario;
 
-@Entity
-public class Agendamento {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long agendamento_id;
-    @ManyToOne
+public class AgendamentoDto {
+    private long agendamento_id;
     private Paciente paciente;
     private LocalDateTime dataHora;
-    @OneToOne
     private Prontuario prontuario;
     private String status;
-    @OneToOne
     private Procedimento procedimento;
-    @OneToMany
     private List<Prescricao> prescricoes;
 
-    public Agendamento() {
+    public AgendamentoDto() {
     }
 
-    public Agendamento(Long agendamento_id, Paciente paciente, LocalDateTime dataHora, Prontuario prontuario,
-            String status, Procedimento procedimento, List<Prescricao> prescricoes) {
+    public AgendamentoDto(Agendamento agendamento) {
+        this.agendamento_id = agendamento.getAgendamento_id();
+    }
+
+    public AgendamentoDto(long agendamento_id, Paciente paciente, LocalDateTime dataHora, Prontuario prontuario,
+            String status,
+            Procedimento procedimento, List<Prescricao> prescricoes) {
         this.agendamento_id = agendamento_id;
         this.paciente = paciente;
         this.dataHora = dataHora;
@@ -41,11 +37,11 @@ public class Agendamento {
         this.prescricoes = prescricoes;
     }
 
-    public Long getAgendamento_id() {
+    public long getId() {
         return agendamento_id;
     }
 
-    public void setAgendamento_id(Long agendamento_id) {
+    public void setId(long agendamento_id) {
         this.agendamento_id = agendamento_id;
     }
 
