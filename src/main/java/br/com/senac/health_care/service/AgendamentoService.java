@@ -1,15 +1,15 @@
-package br.com.senac.health_care.Service;
+package br.com.senac.health_care.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import br.com.senac.health_care.repository.AgendamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.senac.health_care.Repository.AgendamentoRepository;
 import br.com.senac.health_care.domain.Agendamento;
 import br.com.senac.health_care.dto.AgendamentoDto;
 
@@ -17,7 +17,7 @@ import br.com.senac.health_care.dto.AgendamentoDto;
 public class AgendamentoService {
 
     @Autowired
-    AgendamentoRepository repository;
+    private AgendamentoRepository repository;
 
     public String cadastrar(Agendamento agendamento) {
         repository.save(agendamento);

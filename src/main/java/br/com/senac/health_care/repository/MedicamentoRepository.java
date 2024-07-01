@@ -1,4 +1,4 @@
-package br.com.senac.health_care.Repository;
+package br.com.senac.health_care.repository;
 
 import org.springframework.stereotype.Repository;
 

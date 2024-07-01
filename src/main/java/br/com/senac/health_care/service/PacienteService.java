@@ -1,14 +1,14 @@
-package br.com.senac.health_care.Service;
+package br.com.senac.health_care.service;
 
 import java.util.Optional;
 
+import br.com.senac.health_care.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.senac.health_care.Repository.PacienteRepository;
 import br.com.senac.health_care.dto.PacienteDto;
 import br.com.senac.health_care.domain.Paciente;
 

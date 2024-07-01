@@ -1,7 +1,7 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 import br.com.senac.health_care.dto.ProntuarioDto;
-import br.com.senac.health_care.Service.ProntuarioService;
+import br.com.senac.health_care.service.ProntuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

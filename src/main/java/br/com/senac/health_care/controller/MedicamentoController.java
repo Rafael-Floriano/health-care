@@ -1,7 +1,8 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 import java.util.List;
 
+import br.com.senac.health_care.service.MedicamentoService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.senac.health_care.domain.Medicamento;
-import br.com.senac.health_care.Service.MedicamentoService;
 import br.com.senac.health_care.dto.MedicamentoDto;
 
 import org.springframework.web.bind.annotation.GetMapping;

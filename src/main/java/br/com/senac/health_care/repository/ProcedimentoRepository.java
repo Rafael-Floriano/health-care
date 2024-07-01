@@ -1,4 +1,4 @@
-package br.com.senac.health_care.Repository;
+package br.com.senac.health_care.repository;
 
 import br.com.senac.health_care.domain.Procedimento;
 import org.springframework.data.jpa.repository.JpaRepository;

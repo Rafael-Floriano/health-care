@@ -1,7 +1,8 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 import java.util.List;
 
+import br.com.senac.health_care.service.PrescricaoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.senac.health_care.domain.Prescricao;
-import br.com.senac.health_care.Service.PrescricaoService;
 import br.com.senac.health_care.dto.PrescricaoDto;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class PrescricaoController {
 
     @Autowired
-    PrescricaoService service;
+    private PrescricaoService service;
 
     @GetMapping("/cadastrar")
     @Operation(summary = "Cria uma nova prescrição")

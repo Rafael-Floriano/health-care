@@ -1,9 +1,9 @@
-package br.com.senac.health_care.Service;
+package br.com.senac.health_care.service;
 
 import br.com.senac.health_care.domain.Prontuario;
 import br.com.senac.health_care.domain.RegistroMedico;
 import br.com.senac.health_care.dto.ProntuarioDto;
-import br.com.senac.health_care.Repository.ProntuarioRepository;
+import br.com.senac.health_care.repository.ProntuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

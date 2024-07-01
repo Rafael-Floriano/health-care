@@ -1,14 +1,14 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 import java.util.List;
 
+import br.com.senac.health_care.service.AgendamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.senac.health_care.Service.AgendamentoService;
 import br.com.senac.health_care.domain.Agendamento;
 import br.com.senac.health_care.dto.AgendamentoDto;
 
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RequestMapping("/agendamento")
 public class AgendamentoController {
     @Autowired
-    AgendamentoService service;
+    private AgendamentoService service;
 
     @GetMapping("/cadastro")
     public ResponseEntity<String> cadastrar(Agendamento agendamento) {
