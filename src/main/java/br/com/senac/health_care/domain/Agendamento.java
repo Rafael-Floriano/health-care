@@ -26,6 +26,8 @@ public class Agendamento {
     private Procedimento procedimento;
     @OneToMany
     private List<Prescricao> prescricoes;
+    @ManyToMany
+    private List<Material> materials;
 
     public Agendamento() {
     }
