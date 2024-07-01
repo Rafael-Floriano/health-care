@@ -1,5 +1,6 @@
 package br.com.senac.health_care.domain;
 
+import br.com.senac.health_care.dto.ProcedimentoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +20,11 @@ public class Procedimento {
     private String descricao;
     private Double valor;
 
+    public ProcedimentoDto toDto() {
+        ProcedimentoDto procedimentoDto = new ProcedimentoDto();
+        procedimentoDto.setId(this.id);
+        procedimentoDto.setDescricao(this.descricao);
+        procedimentoDto.setValor(this.valor);
+        return procedimentoDto;
+    }
 }
