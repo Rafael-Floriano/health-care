@@ -1,5 +1,7 @@
 package br.com.senac.health_care.domain;
 
+import br.com.senac.health_care.dto.MedicamentoDto;
+import br.com.senac.health_care.dto.ProcedimentoDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
