@@ -1,4 +1,4 @@
-package br.com.senac.health_care.Controller;
+package br.com.senac.health_care.controller;
 
 import br.com.senac.health_care.service.PacienteService;
 import io.swagger.v3.oas.annotations.tags.Tag;

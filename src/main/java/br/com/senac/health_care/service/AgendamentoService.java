@@ -1,5 +1,6 @@
 package br.com.senac.health_care.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,8 +21,20 @@ public class AgendamentoService {
     private AgendamentoRepository repository;
 
     public String cadastrar(Agendamento agendamento) {
+        if (agendamento.getDataHora() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Data agendamento deve ser informada");
+        }
+
+        checaSeJaExisteAgendamentoNoHorario(agendamento.getDataHora());
         repository.save(agendamento);
         return "Cadastro efetuado com sucesso!";
+    }
+
+    public void checaSeJaExisteAgendamentoNoHorario(LocalDateTime dataHora) {
+        List<Agendamento> agendamentoList = repository.findAllByDataHora(dataHora);
+        if (agendamentoList != null && !agendamentoList.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Já existe um agendamento nesse horário");
+        }
     }
 
     public List<AgendamentoDto> ListarAgendamento() {
@@ -40,5 +53,10 @@ public class AgendamentoService {
 
         repository.save(agendamento);
         return ResponseEntity.ok(new AgendamentoDto(agendamento));
+    }
+
+    public ResponseEntity<String> cancelarAgendamento(Long agendamento_id) {
+        repository.deleteById(agendamento_id);
+        return ResponseEntity.ok("Agendamento Removido com sucesso");
     }
 }
