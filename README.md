@@ -12,5 +12,5 @@ Health care conta com documentação de endpoints com swagger, para melhor docum
 
 ## Requisitos para rodar a aplicação:
 
-- JAVA 17;
+- Java 17;
 - Maven 3.9.6 ou superior;
