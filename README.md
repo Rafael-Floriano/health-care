@@ -2,7 +2,7 @@
 
 Health care é uma API de gerenciamento médico, contamos com os módulos de gerencimento de pacientes, medicamento, prescrições, medicamentos aplicados, prontuários e faturamento de contas a pagar dos clientes, assim como suas relações de medicamentos. 
 
-![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/0b11979f-7703-4fd5-8e57-bf6c52262add/fe45a108-ee51-40b7-b973-46402c8d2496/health-care.png)
+https://prod-files-secure.s3.us-west-2.amazonaws.com/0b11979f-7703-4fd5-8e57-bf6c52262add/fe45a108-ee51-40b7-b973-46402c8d2496/health-care.png
 
 ## Endpoints da aplicação:
 
